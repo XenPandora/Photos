@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.controller.AdminController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Admin Panel - User Management" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <VBox spacing="10.0" alignment="CENTER">
+         <children>
+            <Label text="All Users" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <ListView fx:id="userListView" prefHeight="400.0" prefWidth="600.0" />
+            <HBox spacing="10.0" alignment="CENTER">
+               <children>
+                  <Button fx:id="createUserButton" mnemonicParsing="false" onAction="#handleCreateUser" text="Create User" />
+                  <Button fx:id="deleteUserButton" disable="true" mnemonicParsing="false" onAction="#handleDeleteUser" text="Delete User" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>
