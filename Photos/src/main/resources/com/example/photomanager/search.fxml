@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.photomanager.controller.SearchController"
+            prefWidth="800" prefHeight="600">
+
+    <!-- Top Title -->
+    <top>
+        <Label text="Photo Search"
+               BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10" bottom="10"/>
+            </padding>
+        </Label>
+    </top>
+
+    <!-- Middle Content Area -->
+    <center>
+        <VBox>
+            <!-- Date Range Search Area -->
+            <TitledPane text="Date Range Search" collapsible="false">
+                <HBox>
+                    <Label text="Start Date:" alignment="CENTER_LEFT" prefWidth="80"/>
+                    <DatePicker fx:id="startDatePicker" prefWidth="150"/>
+
+                    <Label text="End Date:" alignment="CENTER_LEFT" prefWidth="80"/>
+                    <DatePicker fx:id="endDatePicker" prefWidth="150"/>
+
+                    <Button fx:id="dateSearchButton" text="Search"
+                            onAction="#handleDateSearch"
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                </HBox>
+            </TitledPane>
+
+            <!-- Tag Search Area -->
+            <TitledPane text="Tag Search" collapsible="false">
+                <VBox>
+                    <HBox spacing="10">
+                        <Label text="Tag 1:" alignment="CENTER_LEFT" prefWidth="60"/>
+                        <TextField fx:id="tag1NameField" promptText="Tag Name" prefWidth="120"/>
+                        <Label text="=" prefWidth="10" alignment="CENTER"/>
+                        <TextField fx:id="tag1ValueField" promptText="Tag Value" prefWidth="120"/>
+                    </HBox>
+
+                    <HBox spacing="10">
+                        <Label text="Tag 2:" alignment="CENTER_LEFT" prefWidth="60"/>
+                        <TextField fx:id="tag2NameField" promptText="Tag Name (Optional)" prefWidth="120"/>
+                        <Label text="=" prefWidth="10" alignment="CENTER"/>
+                        <TextField fx:id="tag2ValueField" promptText="Tag Value (Optional)" prefWidth="120"/>
+
+                        <Label text="Logic:" alignment="CENTER_LEFT" prefWidth="50"/>
+                        <ComboBox fx:id="operatorComboBox" prefWidth="80"/>
+
+                        <Button fx:id="tagSearchButton" text="Search"
+                                onAction="#handleTagSearch"
+                                style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+
+            <!-- Search Results Area -->
+            <TitledPane text="Search Results" collapsible="false" prefHeight="300">
+                <TilePane fx:id="resultsTilePane" hgap="10" vgap="10"/>
+            </TitledPane>
+
+            <!-- Create Album Area -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="albumNameField" promptText="Enter new album name" prefWidth="200"/>
+                <Button fx:id="createAlbumButton" text="Create Album from Results"
+                        onAction="#handleCreateAlbum"
+                        style="-fx-background-color: #ff9800; -fx-text-fill: white;"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <!-- Bottom Button -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT">
+            <Button fx:id="backButton" text="Back" onAction="#handleBack"
+                    style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+        </HBox>
+    </bottom>
+</BorderPane>
